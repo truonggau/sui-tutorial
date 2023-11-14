@@ -215,23 +215,3 @@
       2. `capy::capy` - `capy` module in `capy` package
 
   - For more information on Move naming conventions, please check [the style section](https://move-language.github.io/move/coding-conventions.html#naming) of the Move book. 
-
-
-### CLI:
-- **BUILD**
-    ```
-    sui move build
-    ```
-    expect result:
-    
-- **PUBLISH**
-    ```
-    sui client publish --gas-budget 20000000 --skip-dependency-verification
-    ```
-    expect result:
-
-- **INTERACTIVE**
-    ```
-     sui client call --package <PACKGE_ID> --module <MODULE_NAME>  --function <FUNCTION_NAME> --args <TREASURY_CAP> <AMOUNT> <RECIPIENT> --gas-budget 20000000
-    ```
-    expect result:
