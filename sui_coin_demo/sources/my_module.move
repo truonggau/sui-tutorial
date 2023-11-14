@@ -1,4 +1,4 @@
-module helloworld::ebscoin {
+module ebs::ebscoin {
     use std::option;
      use sui::coin::{Self, Coin, TreasuryCap};
     use sui::transfer;
