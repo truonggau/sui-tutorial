@@ -53,4 +53,4 @@ On the Sui explorer, we can see the event emitted displayed as the following, sh
 
 Try out creating, requesting and unpacking transcripts using the Sui CLI client and the Sui explorer to check the result. 
 
-That's the end of Unit 2, great job!
+That's the end of basic example, great job!
