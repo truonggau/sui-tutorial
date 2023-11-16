@@ -58,13 +58,11 @@ In our example, we can define the `init` method as the following:
 
 This will create one copy of the `TeacherCap` object and send it to the publisher's address when the module is first published. 
 
-We can see the publish transaction's effects on the [Sui Explorer](../../unit-one/lessons/6_hello_world.md#viewing-the-object-with-sui-explorer) as below:
-
-![Publish Output](../images/publish.png)
+We can see the publish transaction's effects on the [Sui Explorer](https://suiscan.xyz/devnet/home) as below:
+![Screenshot 2023-11-16 at 11 39 50](https://github.com/truonggau/sui-tutorial/assets/87189382/8dad4d2b-2d72-40bf-ae9b-d1c36eee1ab1)
 
 The second object created from the above transaction is an instance of the `TeacherCap` object, and sent to the publisher address:
-
-![Teacher Cap](../images/teachercap.png)
+![Screenshot 2023-11-16 at 11 36 24](https://github.com/truonggau/sui-tutorial/assets/87189382/42daee3d-256e-4d24-95cc-85184d236dc7)
 
 *Quiz: What was the first object created?*
 
