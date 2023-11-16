@@ -5,8 +5,7 @@ Events are important for Sui Move smart contracts, as it is the main way for ind
 Events on Sui are also represented as objects. There are several types of system level events in Sui, including Move event, Publish event, Transfer object event, and so on. For the full list of system event types, please refer to the [Sui Events API page here](https://docs.sui.io/build/event_api).
 
 The event details of a transaction can be viewed on the [Sui Explorer](https://suiexplorer.com/) under the `Events` tab:
-
-![Event Tab](../images/eventstab.png)
+![Screenshot 2023-11-16 at 16 30 48](https://github.com/truonggau/sui-tutorial/assets/87189382/b3292df5-1180-4807-b38f-440d916407f3)
 
 ## Custom Events
 
@@ -48,8 +47,7 @@ Let's modify our `request_transcript` method to emit this event:
 ```
 
 On the Sui explorer, we can see the event emitted displayed as the following, showing the three data fields that we defined in the `TranscriptRequestEvent` event:
-
-![Custom Event](../images/customevent.png)
+![Screenshot 2023-11-16 at 16 29 52](https://github.com/truonggau/sui-tutorial/assets/87189382/b7378a85-456e-43b3-a3cb-974b6d20cde4)
 
 **Here is the complete version of the transcript sample project: basic_example**
 
