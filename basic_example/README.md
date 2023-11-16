@@ -20,3 +20,6 @@ Project example to practive sui smart contract
       - delete the wrapobject
       - create new transcript object is owned by intended_address
 ### example 3:
+  - Cap design pattern:
+    - Defind Cap object
+    - Modify func only call by address own `cap object`
