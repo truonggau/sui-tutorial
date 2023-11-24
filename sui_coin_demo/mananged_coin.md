@@ -4,21 +4,21 @@ Now we have peeked under the hood of the `sui::coin` module, we can look at a si
 
 ## Smart Contract
 
-You can find the complete [Managed Coin example contract](../example_projects/fungible_tokens/sources/managed.move) under the example project folder.
+You can find the complete [Managed Coin example contract](./sources/ebs_coin.move) under the example project folder.
 
-Given what we have covered so far, this contract should be fairly easy to understand. It follows the [One Time Witness](./3_witness_design_pattern.md#one-time-witness) pattern exactly, where the `witness` resource is named `EBSCOIN`, and automatically created by the module `init` function. 
+Given what we have covered so far, this contract should be fairly easy to understand. It follows the [One Time Witness](./witness_design_pattern.md#one-time-witness) pattern exactly, where the `witness` resource is named `EBSCOIN`, and automatically created by the module `init` function. 
 
 The `init` function then calls `coin::create_currency` to get the `TreasuryCap` and `CoinMetadata` resources. The parameters passed into this function are the fields of the `CoinMetadata` object, so include the token name, symbol, icon URL, etc. 
 
-The `CoinMetadata` is immediately frozen after creation via the `transfer::freeze_object` method, so that it becomes a [shared immutable object](../../unit-two/lessons/2_ownership.md#shared-immutable-objects) that can be read by any address. 
+The `CoinMetadata` is immediately frozen after creation via the `transfer::freeze_object` method, so that it becomes a [shared immutable object](../basic_example/2_ownership.md#shared-immutable-objects) that can be read by any address. 
 
-The `TreasuryCap` [Capability](../../unit-two/lessons/6_capability_design_pattern.md) object is used as a way to control access to the `mint` and `burn` methods that create or destroy `Coin<EBSCOIN>` objects respectively. 
+The `TreasuryCap` [Capability](../basic_example/6_capability_design_pattern.md) object is used as a way to control access to the `mint` and `burn` methods that create or destroy `Coin<EBSCOIN>` objects respectively. 
 
 ## Publishing and CLI Testing
 
 ### Publish the Module
 
-Under the [fungible_tokens](../example_projects/fungible_tokens/) project folder, run:
+Under the [fungible_tokens](./) project folder, run:
 
 ```bash
     sui client publish --gas-budget 10000000
@@ -26,11 +26,9 @@ Under the [fungible_tokens](../example_projects/fungible_tokens/) project folder
 
 You should see console output similar to:
 
-![Publish Output](../images/publish.png)
+![Publish Output](https://github.com/truonggau/sui-tutorial/assets/87189382/a6a3aee1-ca0e-4ece-b2b8-19cd942a3b3a)
 
 The two immutable objects created are respectively the package itself and the `CoinMetadata` object of `Managed Coin`. And the owned object passed to the transaction sender is the `TreasuryCap` object of `Managed Coin`. 
-
-![Treasury Object](../images/treasury.png)
 
 Export the object IDs of the package object and the `TreasuryCap` object to environmental variables:
 
@@ -49,7 +47,7 @@ To mint some `MNG` tokens, we can use the following CLI command:
 
 *💡Note: as of Sui binary version 0.21.0, `u64` inputs must be escaped as strings, thus the above CLI command format. This might change in a future version.*
 
-![Minting](../images/minting.png)
+![Minting](https://github.com/truonggau/sui-tutorial/assets/87189382/c8c40802-1b00-4a5a-9fc5-c60e592d4295)
 
 Export the object ID of the newly minted `COIN<EBSCOIN>` object to a bash variable:
 
@@ -66,8 +64,6 @@ To burn an existing `COIN<EBSCOIN>` object, we use the following CLI command:
 ```bash
     sui client call --function burn --module <Module_name> --package $PACKAGE_ID --args $TREASURYCAP_ID $COIN_ID --gas-budget 10000000
 ```
-
-![Burning](../images/burning.png)
 
 Verify that the `Supply` field under the `TreasuryCap<EBSCOIN>` object should be back to `0`. 
 
