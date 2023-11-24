@@ -1,10 +1,11 @@
 // Copyright (c) 2022, Mysten Labs, Inc.
 // SPDX-License-Identifier: Apache-2.0
 
-/// Basic generics example for Sui Move
-/// 
-/// A part of the Sui Move intro course: 
-/// 
+// Basic generics example for Sui Move
+// 
+// A part of the Sui Move intro course: 
+// 
+#[lint_allow(self_transfer)]
 module ebs::generics {
     use sui::transfer;
     use sui::object::{Self, UID};

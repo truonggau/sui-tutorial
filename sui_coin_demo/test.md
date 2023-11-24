@@ -82,7 +82,7 @@ To test burning a token, the procedure is very similar to testing minting. The o
 
 ## Running Unit Tests
 
-The full [`managed_tests`](../example_projects/fungible_tokens/sources/managed_tests.move) module source code can be found under `example_projects` folder.
+The full [`managed_tests`](./sources/ebs_coin_test.move) module source code can be found under `example_projects` folder.
 
 To execute the unit tests, navigate to the project directory in CLI and enter the following command:
 

@@ -28,4 +28,10 @@ module ebs::ebscoin {
     public entry fun burn(treasury_cap: &mut TreasuryCap<EBSCOIN>, coin: Coin<EBSCOIN>) {
         coin::burn(treasury_cap, coin);
     }
+
+    #[test_only]
+    /// Wrapper of module initializer for testing
+    public fun test_init(ctx: &mut TxContext) {
+        init(EBSCOIN {}, ctx)
+    }
 }
