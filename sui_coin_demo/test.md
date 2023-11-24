@@ -91,6 +91,5 @@ To execute the unit tests, navigate to the project directory in CLI and enter th
 ```
 
 You should see console output indicating which unit tests have passed or failed.
-
-![Unit Test](../images/unittest.png)
+![Screenshot from 2023-11-24 23-14-17](https://github.com/truonggau/sui-tutorial/assets/87189382/aee02c8c-cd7f-4ca2-9af5-4789346ac36c)
 
