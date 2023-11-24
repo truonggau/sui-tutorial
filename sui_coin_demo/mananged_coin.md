@@ -6,13 +6,13 @@ Now we have peeked under the hood of the `sui::coin` module, we can look at a si
 
 You can find the complete [Managed Coin example contract](../example_projects/fungible_tokens/sources/managed.move) under the example project folder.
 
-Given what we have covered so far, this contract should be fairly easy to understand. It follows the [One Time Witness](./3_witness_design_pattern.md#one-time-witness) pattern exactly, where the `witness` resource is named `MANAGED`, and automatically created by the module `init` function. 
+Given what we have covered so far, this contract should be fairly easy to understand. It follows the [One Time Witness](./3_witness_design_pattern.md#one-time-witness) pattern exactly, where the `witness` resource is named `EBSCOIN`, and automatically created by the module `init` function. 
 
 The `init` function then calls `coin::create_currency` to get the `TreasuryCap` and `CoinMetadata` resources. The parameters passed into this function are the fields of the `CoinMetadata` object, so include the token name, symbol, icon URL, etc. 
 
 The `CoinMetadata` is immediately frozen after creation via the `transfer::freeze_object` method, so that it becomes a [shared immutable object](../../unit-two/lessons/2_ownership.md#shared-immutable-objects) that can be read by any address. 
 
-The `TreasuryCap` [Capability](../../unit-two/lessons/6_capability_design_pattern.md) object is used as a way to control access to the `mint` and `burn` methods that create or destroy `Coin<MANAGED>` objects respectively. 
+The `TreasuryCap` [Capability](../../unit-two/lessons/6_capability_design_pattern.md) object is used as a way to control access to the `mint` and `burn` methods that create or destroy `Coin<EBSCOIN>` objects respectively. 
 
 ## Publishing and CLI Testing
 
@@ -51,24 +51,24 @@ To mint some `MNG` tokens, we can use the following CLI command:
 
 ![Minting](../images/minting.png)
 
-Export the object ID of the newly minted `COIN<MANAGED>` object to a bash variable:
+Export the object ID of the newly minted `COIN<EBSCOIN>` object to a bash variable:
 
 ```bash
 export COIN_ID=<coin object ID from previous output>
 ```
 
-Verify that the `Supply` field under the `TreasuryCap<MANAGED>` object should be increased by the amount minted. 
+Verify that the `Supply` field under the `TreasuryCap<EBSCOIN>` object should be increased by the amount minted. 
 
 ### Burning Tokens
 
-To burn an existing `COIN<MANAGED>` object, we use the following CLI command:
+To burn an existing `COIN<EBSCOIN>` object, we use the following CLI command:
 
 ```bash
-    sui client call --function burn --module managed --package $PACKAGE_ID --args $TREASURYCAP_ID $COIN_ID --gas-budget 10000000
+    sui client call --function burn --module <Module_name> --package $PACKAGE_ID --args $TREASURYCAP_ID $COIN_ID --gas-budget 10000000
 ```
 
 ![Burning](../images/burning.png)
 
-Verify that the `Supply` field under the `TreasuryCap<MANAGED>` object should be back to `0`. 
+Verify that the `Supply` field under the `TreasuryCap<EBSCOIN>` object should be back to `0`. 
 
 *Exercise: What other commonly used functions do fungible tokens need? You should know enough about programming in Move now to try to implement some of these functions.*
