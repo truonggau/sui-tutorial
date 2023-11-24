@@ -26,11 +26,9 @@ Under the [fungible_tokens](../example_projects/fungible_tokens/) project folder
 
 You should see console output similar to:
 
-![Publish Output](../images/publish.png)
+![Publish Output](https://github.com/truonggau/sui-tutorial/assets/87189382/a6a3aee1-ca0e-4ece-b2b8-19cd942a3b3a)
 
 The two immutable objects created are respectively the package itself and the `CoinMetadata` object of `Managed Coin`. And the owned object passed to the transaction sender is the `TreasuryCap` object of `Managed Coin`. 
-
-![Treasury Object](../images/treasury.png)
 
 Export the object IDs of the package object and the `TreasuryCap` object to environmental variables:
 
@@ -49,7 +47,7 @@ To mint some `MNG` tokens, we can use the following CLI command:
 
 *💡Note: as of Sui binary version 0.21.0, `u64` inputs must be escaped as strings, thus the above CLI command format. This might change in a future version.*
 
-![Minting](../images/minting.png)
+![Minting](https://github.com/truonggau/sui-tutorial/assets/87189382/c8c40802-1b00-4a5a-9fc5-c60e592d4295)
 
 Export the object ID of the newly minted `COIN<MANAGED>` object to a bash variable:
 
@@ -66,8 +64,6 @@ To burn an existing `COIN<MANAGED>` object, we use the following CLI command:
 ```bash
     sui client call --function burn --module managed --package $PACKAGE_ID --args $TREASURYCAP_ID $COIN_ID --gas-budget 10000000
 ```
-
-![Burning](../images/burning.png)
 
 Verify that the `Supply` field under the `TreasuryCap<MANAGED>` object should be back to `0`. 
 
