@@ -9,7 +9,7 @@
           --header 'Content-Type: application/json' \
           --data-raw '{
           "FixedAmountRequest": {
-              "recipient": "<YOUR SUI ADDRESS>"
+              "recipient": "0xa86926937f93a1a5f1c37e247de3b571b781f988b3628f56e7d3956b6bd7f9e4"
             }  
       }'
     ```

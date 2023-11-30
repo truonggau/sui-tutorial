@@ -1,10 +1,10 @@
-# Managed Coin Example
+# EBS Coin Example
 
 Now we have peeked under the hood of the `sui::coin` module, we can look at a simple but complete example of creating a type of custom fungible token where there is a trusted manager that has the capability to mint and burn, similar to many ERC-20 implementations. 
 
 ## Smart Contract
 
-You can find the complete [Managed Coin example contract](./sources/ebs_coin.move) under the example project folder.
+You can find the complete [EBS Coin example contract](./sources/ebs_coin.move) under the example project folder.
 
 Given what we have covered so far, this contract should be fairly easy to understand. It follows the [One Time Witness](./witness_design_pattern.md#one-time-witness) pattern exactly, where the `witness` resource is named `EBSCOIN`, and automatically created by the module `init` function. 
 
@@ -28,7 +28,7 @@ You should see console output similar to:
 
 ![Publish Output](https://github.com/truonggau/sui-tutorial/assets/87189382/a6a3aee1-ca0e-4ece-b2b8-19cd942a3b3a)
 
-The two immutable objects created are respectively the package itself and the `CoinMetadata` object of `Managed Coin`. And the owned object passed to the transaction sender is the `TreasuryCap` object of `Managed Coin`. 
+The two immutable objects created are respectively the package itself and the `CoinMetadata` object of `EBS Coin`. And the owned object passed to the transaction sender is the `TreasuryCap` object of `EBS Coin`. 
 
 Export the object IDs of the package object and the `TreasuryCap` object to environmental variables:
 
@@ -39,10 +39,10 @@ export TREASURYCAP_ID=<treasury cap object ID from previous output>
 
 ### Minting Tokens
 
-To mint some `MNG` tokens, we can use the following CLI command:
+To mint some `EBS` tokens, we can use the following CLI command:
 
 ```bash
-    sui client call --function mint --module managed --package $PACKAGE_ID --args $TREASURYCAP_ID \"<amount to mint>\" <recipient address> --gas-budget 10000000
+    sui client call --function mint --module EBS --package $PACKAGE_ID --args $TREASURYCAP_ID \"<amount to mint>\" <recipient address> --gas-budget 10000000
 ```
 
 *💡Note: as of Sui binary version 0.21.0, `u64` inputs must be escaped as strings, thus the above CLI command format. This might change in a future version.*
